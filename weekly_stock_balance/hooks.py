@@ -1,7 +1,7 @@
 app_name = "weekly_stock_balance"
 app_title = "Weekly Stock Balance"
-app_publisher = "Jen "
-app_description = "Sends weekly currated email of stock balance report"
+app_publisher = "Jen Hurley"
+app_description = "Sends weekly email of aggregated stock balance report"
 app_email = "j.s.hurley00@gmail.com"
 app_license = "mit"
 # required_apps = []
@@ -150,6 +150,14 @@ app_license = "mit"
 # 		"weekly_stock_balance.tasks.monthly"
 # 	],
 # }
+
+scheduler_events = {
+    "cron": {
+        "0 8 * * 1": [
+            "weekly_stock_balance.scripts.send_weekly_stock_balance_report"
+        ]
+    }
+}
 
 # Testing
 # -------
