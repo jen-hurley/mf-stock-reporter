@@ -30,7 +30,7 @@ def send_weekly_stock_balance_report():
         report_content += f"{row['parent_item_code']},{row['parent_item_name']},{row['total_qty']}\n"
 
     # send email to stock managers
-    recipients_email = frappe.get_value("User", {"role_profile_name": "Stock Manager"}, "email")
+    recipients_email = frappe.get_value("User", {"role_profile_name": "Item Manager"}, "email")
     if not recipients_email:
             frappe.throw("No recipient email found for the specified user.")
 
